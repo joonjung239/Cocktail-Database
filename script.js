@@ -1,22 +1,38 @@
-const ingredientInput = document.getElementById('ingredient')
-const ingredientBtn = document.getElementById('ingredient-button')
-ingredientBtn.addEventListener('click', function getData() {
-    const ingredient = ingredientInput.value;
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
-    .then(res => res.json())
-    .then(data => logDrinkNames(data.drinks))
-  })
+let drink = {
+  name: document.querySelector("section > div > h2"),
+  photo: document.querySelector("img"),
+  instructions: document.querySelector("p"),
+}
+document.getElementById('name').addEventListener("click", findCocktail)
+document.getElementById('name').addEventListener("change", findCocktail)
+document.getElementById('random').addEventListener("click", randomDrink)
 
-function logDrinkNames(drinks) {
-  drinks.forEach(drink => console.log(drink))
-  drinks.forEach(drink => console.log(drink.strDrink))
-  drinks.forEach(drink => console.log(drink.strDrinkThumb))
+function drinkUpdate(data, info) {
+  drink.instructions.textContent = data.drinks[info].strInstructions;
+  drink.name.textContent = data.drinks[info].strDrink;
+  drink.photo.src =  data.drinks[info].strDrinkThumb;
 }
 
-const cocktailNameInput = document.getElementById('name')
-const nameBtn = document.getElementById('name-btn')
-nameBtn.addEventListener('click', () => {
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktailNameInput.value}`)
-  .then(res => res.json())
-  .then(data => console.log(data.drinks))
-})
+function newDrink(data, info) {
+  return function() {
+      if (info < data.drinks.length - 1) info++
+      drinkUpdate(data, info)
+  }
+}
+
+function findCocktail() {
+  fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + document.getElementById('name').value)
+  .then(response => response.json())
+  .then(data => {console.log(data) 
+    drinkUpdate(data, 0)
+      document.getElementById('newCocktail').addEventListener("click", newDrink(data, 0))
+  })
+}
+ 
+function randomDrink() {
+  fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+      .then(response => response.json())
+      .then(data => {console.log(data) 
+          drinkUpdate(data, 0)
+      })
+}

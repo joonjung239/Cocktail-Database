@@ -1,28 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cocktail Database</title>
+        <link rel="stylesheet" href="style.css">
     </head>
+
     <body>
-      <input id="ingredient" placeholder="alchohol">
-      <button type="button" id="ingredient-button">Get Cocktails</button> <br><br>
-      <input id="name" placeholder="cocktail name">
-      <button type="button" id="name-btn">Get Cocktails</button>
-      <script src="script.js"></script>
+        <h1>Cocktail Database</h1>
+        <h2>Find Your Perfect Drink</h2>
+        <fieldset class="container">
+            <legend>Cocktail Finder</legend>
+            <label for="name">Search By Name:</label>
+            <input type="text" name="name" id="name" value="">
+            <button type="button" name="button">Get Cocktail</button> 
+            <label for="random">Random Cocktail!</label>
+            <button type="button" id="random">Random </button>
+        </fieldset>
+
+        <section class="results">
+            <div class="container">
+                <h2></h2>
+                <img src="" alt="">
+                <div>
+                    <fieldset>
+                        <legend>Instructions</legend>
+                        <p></p>
+                    </fieldset>
+                    <section class="next">
+                        <label for="new-cocktail">Give me another drink that matches my search!: </label>
+                        <button type="button" id="newCocktail">New Drink</button>
+                    </section>
+                </div>
+            </div>
+        </section>
+       
+        <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
