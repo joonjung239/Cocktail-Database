@@ -28,6 +28,13 @@ function renderDrinkNames(drinks) {
     console.log(drink)
     const drinkName = document.createElement('li')
     drinkName.textContent = drink.strDrink
+    drinkName.addEventListener('mouseenter', () => {
+      drinkName.style.fontWeight = 'bold'
+      drinkName.style.cursor = 'pointer'
+    })
+    drinkName.addEventListener('mouseleave', () => {
+      drinkName.style.fontWeight = 'normal'
+    })
     drinkName.addEventListener('click', () => {
       document.querySelector("p").textContent = drink.strInstructions;
       document.querySelector("section > div > h2").textContent = drink.strDrink;
