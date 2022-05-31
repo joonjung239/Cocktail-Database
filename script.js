@@ -3,8 +3,8 @@ let drink = {
   photo: document.querySelector("img"),
   instructions: document.querySelector("p"),
 }
-document.getElementById('name').addEventListener("click", findCocktail)
-document.getElementById('name').addEventListener("change", findCocktail)
+const drinkList = document.getElementById('drink-list')
+document.getElementById('name-btn').addEventListener("click", findCocktail)
 document.getElementById('random').addEventListener("click", randomDrink)
 
 function drinkUpdate(data, info) {
@@ -26,6 +26,7 @@ function findCocktail() {
   .then(data => {console.log(data) 
     drinkUpdate(data, 0)
       document.getElementById('newCocktail').addEventListener("click", newDrink(data, 0))
+      renderDrinkNames(data.drinks)
   })
 }
  
@@ -35,4 +36,14 @@ function randomDrink() {
       .then(data => {console.log(data) 
           drinkUpdate(data, 0)
       })
+}
+
+function renderDrinkNames(drinks) {
+  drinkList.textContent = ""
+  drinks.forEach(drink => {
+    console.log(drink)
+    const drinkName = document.createElement('li')
+    drinkName.textContent = drink.strDrink
+    drinkList.append(drinkName)
+  })
 }
