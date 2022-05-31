@@ -10,14 +10,19 @@
     <body>
         <h1>Cocktail Database</h1>
         <h2>Find Your Perfect Drink</h2>
+       
         <fieldset class="container">
             <legend>Cocktail Finder</legend>
-            <label for="name">Search By Name:</label>
-            <input type="text" name="name" id="name" value="">
-            <button type="button" name="button" id="name-btn">Get Cocktail</button> 
+            <form id="form">
+                <label for="name">Search By Name:</label>
+                <input type="text" name="name" id="name" value="">
+                <button type="submit" name="button" id="name-btn">Get Cocktail</button>
+            </form> 
+            
             <label for="random">Random Cocktail!</label>
             <button type="button" id="random">Random </button>
             <ul id="drink-list"></ul>
+        
         </fieldset>
         <section class="results">
             <div class="container">
@@ -28,10 +33,6 @@
                         <legend>Instructions</legend>
                         <p></p>
                     </fieldset>
-                    <section class="next">
-                        <label for="new-cocktail">Give me another drink that matches my search!: </label>
-                        <button type="button" id="newCocktail">New Drink</button>
-                    </section>
                 </div>
             </div>
         </section>
@@ -39,11 +40,3 @@
         <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
- 
- 
- 
- 
- 
- 
- 
- 
