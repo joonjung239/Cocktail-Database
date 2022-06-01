@@ -5,41 +5,40 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Cocktail Database</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;600&display=swap" rel="stylesheet">
     </head>
-
     <body>
-        <h1>Cocktail Database</h1>
+        <h1>Whatcha Drinkin'?</h1>
         <h2>Find Your Perfect Drink</h2>
-       
-        <fieldset class="container">
-            <legend>Cocktail Finder</legend>
+        <div id="search-container">
+            <legend><strong>Cocktail Finder</strong></legend>
             <form id="form">
                 <label for="name">Search By Name:</label>
                 <input type="text" name="name" id="name" value="">
                 <button type="submit" name="button" id="name-btn">Get Cocktail</button>
-            </form> 
-            
-            <label for="random">Random Cocktail!</label>
-            <button type="button" id="random">Random </button>
+                <label id='random-label' for="random">Random Cocktail!</label>
+                <button type="button" id="random">Random </button>
+            </form>
             <ul id="drink-list"></ul>
-        
-        </fieldset>
-        <section class="results">
+          </div>
+          <section class="results">
             <div class="container">
-                <h2></h2>
-                <img src="" alt="">
+              <h2></h2>
+              <img id='image' src="" alt="">
+              <div id="ingredient-container">
+                  <legend><strong>Ingredients</strong></legend>
+                  <ul id="ingredient-list"></ul>
+            </div>
                 <div>
-                    <fieldset>
-                        <legend>Instructions</legend>
+                    <div id="instructions-container">
+                        <legend><strong>Instructions</strong></legend>
                         <p></p>
-                    </fieldset>
+                </div>
                 </div>
             </div>
         </section>
-        <fieldset>
-            <legend>Ingredients</legend>
-            <ul id="ingredient-list"></ul>
-        </fieldset>
         <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
