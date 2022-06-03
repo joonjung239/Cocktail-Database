@@ -62,4 +62,7 @@ function clearDrink() {
   document.querySelector("img").src = "";
   document.querySelector("p").textContent = "";
   ingredientList.textContent = ""
+  document.querySelector("#ingredient-container").style.visibility ="hidden"
+  document.querySelector('#instructions-container').style.visibility = 'hidden'
+  document.querySelector('#image').style.visibility = 'hidden'
 }
